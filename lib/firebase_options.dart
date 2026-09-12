@@ -1,25 +1,13 @@
-// ⚠️ PLACEHOLDER FILE — DO NOT USE AS-IS.
-//
-// Run this once from Termux, inside the project folder, to replace this
-// entire file with your real project's config automatically:
-//
-//   dart pub global activate flutterfire_cli
-//   flutterfire configure
-//
-// It will ask you to log in to Firebase and pick/create a project, then
-// overwrite this file for real. Full steps are in the message where this
-// project was set up.
-
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
-import 'dart:io' show Platform;
 
 class DefaultFirebaseOptions {
-  static FirebaseOptions get currentPlatform {
-    if (Platform.isAndroid) {
-      throw UnsupportedError(
-        'firebase_options.dart is a placeholder. Run `flutterfire configure` first.',
-      );
-    }
-    throw UnsupportedError('DefaultFirebaseOptions are not supported for this platform.');
-  }
+  static FirebaseOptions get currentPlatform => android;
+
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyCcNjCpzd5_gbDSRGb_3Pruvl9-9lHsEG0',
+    appId: '1:206492608803:android:6b11b36eeecec6745a8496',
+    messagingSenderId: '206492608803',
+    projectId: 'sksamimaiapp',
+    storageBucket: 'sksamimaiapp.firebasestorage.app',
+  );
 }
