@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:livekit_client/livekit_client.dart' as sdk;
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart' show launchUrl;
+import 'package:url_launcher/url_launcher.dart' show launchUrl, LaunchMode;
 import '../controllers/admin_control.dart';
 import '../controllers/app_ctrl.dart' as ctrl;
 import '../widgets/agent_status_indicator.dart';
