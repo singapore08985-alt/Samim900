@@ -57,17 +57,17 @@ class LKColorPaletteDark implements AppColorPalette {
   Color get fgModerate => const Color(0xFFF7B752);
 
   @override
-  Color get fgAccent => const Color(0xFF002CF2);
+  Color get fgAccent => const Color(0xFF00FF41);
 
   // BG
   @override
-  Color get bg1 => const Color(0xFF070707);
+  Color get bg1 => const Color(0xFF050505);
 
   @override
-  Color get bg2 => const Color(0xFF131313);
+  Color get bg2 => const Color(0xFF0A130C);
 
   @override
-  Color get bg3 => const Color(0xFF202020);
+  Color get bg3 => const Color(0xFF102015);
 
   @override
   Color get bgSerious => const Color(0xFF1F0E0B);
@@ -79,14 +79,14 @@ class LKColorPaletteDark implements AppColorPalette {
   Color get bgModerate => const Color(0xFF1A0E04);
 
   @override
-  Color get bgAccent => const Color(0xFF090C17);
+  Color get bgAccent => const Color(0xFF001F0A);
 
   // Separator
   @override
-  Color get separator1 => const Color(0xFF202020);
+  Color get separator1 => const Color(0xFF123018);
 
   @override
-  Color get separator2 => const Color(0xFF30302F);
+  Color get separator2 => const Color(0xFF1E4A2B);
 
   @override
   Color get separatorForSerious => const Color(0xFF5A1C16);
@@ -98,7 +98,7 @@ class LKColorPaletteDark implements AppColorPalette {
   Color get separatorModerate => const Color(0xFF3F2208);
 
   @override
-  Color get separatorAccent => const Color(0xFF0C1640);
+  Color get separatorAccent => const Color(0xFF00FF41);
 }
 
 class LKColorPaletteLight implements AppColorPalette {

@@ -13,7 +13,13 @@ class AdminControl extends ChangeNotifier {
 
   bool appEnabled = true;
   String broadcast = '';
+  String broadcastType = 'info'; // info, warning, urgent
   String adminPin = '0000'; // change this from the admin panel after first login
+  String youtubeUrl = '';
+  String telegramUrl = '';
+  String logoUrl = ''; // if set, shown instead of the built-in logo, live for everyone
+  bool codingModeEnabled = false;
+  String geminiApiKey = '';
 
   String get adminName => _adminName;
   String get supportNumber => _supportNumber;
@@ -29,7 +35,13 @@ class AdminControl extends ChangeNotifier {
         _doc.set({
           'appEnabled': true,
           'broadcast': '',
+          'broadcastType': 'info',
           'adminPin': '0000',
+          'youtubeUrl': '',
+          'telegramUrl': '',
+          'logoUrl': '',
+          'codingModeEnabled': false,
+          'geminiApiKey': '',
         });
       }
     });
@@ -39,16 +51,35 @@ class AdminControl extends ChangeNotifier {
       if (data == null) return;
       appEnabled = data['appEnabled'] as bool? ?? true;
       broadcast = data['broadcast'] as String? ?? '';
+      broadcastType = data['broadcastType'] as String? ?? 'info';
       adminPin = data['adminPin'] as String? ?? adminPin;
+      youtubeUrl = data['youtubeUrl'] as String? ?? '';
+      telegramUrl = data['telegramUrl'] as String? ?? '';
+      logoUrl = data['logoUrl'] as String? ?? '';
+      codingModeEnabled = data['codingModeEnabled'] as bool? ?? false;
+      geminiApiKey = data['geminiApiKey'] as String? ?? '';
       notifyListeners();
     });
   }
 
   Future<void> setAppEnabled(bool value) => _doc.update({'appEnabled': value});
 
-  Future<void> setBroadcast(String message) => _doc.update({'broadcast': message});
+  Future<void> setBroadcast(String message, {String type = 'info'}) =>
+      _doc.update({'broadcast': message, 'broadcastType': type});
+
+  Future<void> clearBroadcast() => _doc.update({'broadcast': '', 'broadcastType': 'info'});
 
   Future<void> setAdminPin(String pin) => _doc.update({'adminPin': pin});
+
+  Future<void> setLinks({String? youtube, String? telegram}) => _doc.update({
+        if (youtube != null) 'youtubeUrl': youtube,
+        if (telegram != null) 'telegramUrl': telegram,
+      });
+
+  Future<void> setLogoUrl(String url) => _doc.update({'logoUrl': url});
+
+  Future<void> setCodingMode({required bool enabled, required String apiKey}) =>
+      _doc.update({'codingModeEnabled': enabled, 'geminiApiKey': apiKey});
 
   bool checkPin(String input) => input == adminPin;
 }

@@ -21,6 +21,7 @@ class VoiceAssistantApp extends StatelessWidget {
 
     return ThemeData(
       useMaterial3: true,
+      fontFamily: 'monospace',
       cardColor: colorPallete.bg2,
       scaffoldBackgroundColor: colorPallete.bg1,
       canvasColor: colorPallete.bg1,
@@ -71,9 +72,9 @@ class VoiceAssistantApp extends StatelessWidget {
           session: appCtrl.session,
           child: MaterialApp(
             title: 'SK Sefa AI',
-            theme: buildTheme(isLight: true),
+            theme: buildTheme(isLight: false),
             darkTheme: buildTheme(isLight: false),
-            // themeMode: ThemeMode.dark,
+            themeMode: ThemeMode.dark,
             home: Builder(
               builder: (ctx) => Consumer<AdminControl>(
                 builder: (ctx, admin, _) {
@@ -100,13 +101,20 @@ class VoiceAssistantApp extends StatelessWidget {
                               left: 0,
                               right: 0,
                               child: Material(
-                                color: Colors.amber,
+                                color: {
+                                      'warning': Colors.amber,
+                                      'urgent': Colors.red,
+                                    }[admin.broadcastType] ??
+                                    Colors.blue,
                                 child: Padding(
                                   padding: const EdgeInsets.all(10),
                                   child: Text(
                                     admin.broadcast,
                                     textAlign: TextAlign.center,
-                                    style: const TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
+                                    style: TextStyle(
+                                      color: admin.broadcastType == 'warning' ? Colors.black : Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
                                 ),
                               ),
