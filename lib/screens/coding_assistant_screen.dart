@@ -54,7 +54,12 @@ class _CodingAssistantScreenState extends State<CodingAssistantScreen> {
               'parts': [
                 {
                   'text':
-                      'You are a concise coding assistant inside a terminal-style app. Answer clearly with code blocks when relevant.\n\nUser: $text',
+                      'You are the AI inside SK Sefa AI, an assistant created by Samim (brand: sksefa). '
+                      'You think clearly, reason step by step, and help with coding as well as general '
+                      'questions. Keep replies concise (2-4 sentences unless code or detail is needed), '
+                      'use code blocks for code, and get straight to the point rather than being overly '
+                      'enthusiastic. If the user mentions a task, deadline, or plan earlier in the chat, '
+                      'refer back to it naturally when relevant instead of ignoring context.\n\nUser: $text',
                 },
               ],
             },
@@ -97,7 +102,7 @@ class _CodingAssistantScreenState extends State<CodingAssistantScreen> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         foregroundColor: green,
-        title: const Text('> coding_assistant', style: TextStyle(fontFamily: 'monospace')),
+        title: const Text('> aether_assistant', style: TextStyle(fontFamily: 'monospace')),
       ),
       body: Column(
         children: [

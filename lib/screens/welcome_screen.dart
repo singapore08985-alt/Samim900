@@ -84,7 +84,7 @@ class WelcomeScreen extends StatelessWidget {
                         MaterialPageRoute(builder: (_) => const CodingAssistantScreen()),
                       ),
                       icon: const Icon(Icons.terminal, color: Color(0xFF00FF41)),
-                      label: const Text('coding_assistant', style: TextStyle(color: Color(0xFF00FF41))),
+                      label: const Text('aether_assistant', style: TextStyle(color: Color(0xFF00FF41))),
                     );
                   },
                 ),
